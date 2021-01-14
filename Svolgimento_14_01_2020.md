@@ -37,12 +37,12 @@ https://reactnavigation.org/docs/bottom-tab-navigator
 
 ### *API*:
 
-####*Chiamata lista tutti i personaggi:*<br />
+#### *Chiamata lista tutti i personaggi:*<br />
 *Link doc:* https://rickandmortyapi.com/documentation/#get-all-characters
 ```
 GET https://rickandmortyapi.com/api/character
 ```
-####*Chiamata lista tutti gli episodi:*<br />
+#### *Chiamata lista tutti gli episodi:*<br />
 *Link doc:* https://rickandmortyapi.com/documentation/#get-all-episodes
 ```
 GET https://rickandmortyapi.com/api/episode
