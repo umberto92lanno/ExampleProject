@@ -35,3 +35,14 @@ const valore = useMemo() => {
    return array.map(a => a.id = a.id +1);
 }, []);
 ```
+
+## *useState*
+```
+const [valore, setValore] = useState(0);
+
+// visualizzare valore:
+console.log(valore);
+
+// aggiornamento valore:
+setValore(2);
+```
