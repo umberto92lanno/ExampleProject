@@ -18,7 +18,7 @@ npm install react-native-reanimated react-native-gesture-handler react-native-sc
 
 *comando yarn:*
 ```
-npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/native @react-navigation/bottom-tabs
+yarn add react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/native @react-navigation/bottom-tabs
 ```
 
 ### *Link*:
