@@ -1,4 +1,4 @@
-##Continuare l'app aggiungendo:
+### Continuare l'app aggiungendo:
 
 1. Tab Navigation composta da:
 	1. Un tab con la lista dei personaggi
@@ -10,7 +10,7 @@
 
 
 
-##Librerie necessarie:
+## *Librerie necessarie*:
 *comando npm:*
 ```
 npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/native @react-navigation/bottom-tabs
@@ -21,14 +21,15 @@ npm install react-native-reanimated react-native-gesture-handler react-native-sc
 npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/native @react-navigation/bottom-tabs
 ```
 
-##Link
+### *Link*:
 
 *React Navigation*
 https://reactnavigation.org/docs/stack-navigator
 https://reactnavigation.org/docs/bottom-tab-navigator
 
 
-##API
+### *API*:
+
 ####*Chiamata lista tutti i personaggi:*
 *Link doc:* https://rickandmortyapi.com/documentation/#get-all-characters
 ```

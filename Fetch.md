@@ -1,4 +1,6 @@
-##Chiamata GET
+### Esempi Fetch:
+
+## *Chiamata GET*
 ```
 fetch(url, {
   method: 'GET',
@@ -10,7 +12,7 @@ fetch(url, {
 });
 ```
 
-##Chiamata POST
+## *Chiamata POST*
 ```
 fetch(url, {
   method: 'POST',

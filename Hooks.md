@@ -1,6 +1,6 @@
-###TIpi di Hooks:
+### TIpi di Hooks:
 
-###*useEffect*
+## *useEffect*
 ```
 useEffect(() => {
     console.log('componentDidMount');
@@ -16,7 +16,7 @@ useEffect(() => {
 }, [list]);
 ```
 
-###*useCallback*
+## *useCallback*
 ```
 // esempio relativo alla props "renderItem" di una FlatList
 // una volta istanziata sarà possibile richiamare: renderItem();
@@ -26,7 +26,7 @@ const renderItem = useCallback(() => {
 }, []);
 ```
 
-###*useMemo*
+## *useMemo*
 ```
 // esempio relativo ad un possibile utilizzo con variabile "array" contenente un array di oggetti
 // una volta istanziata sarà possibile richiamare: valore;
