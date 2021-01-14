@@ -21,10 +21,19 @@ npm install react-native-reanimated react-native-gesture-handler react-native-sc
 yarn add react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/native @react-navigation/bottom-tabs
 ```
 
+*iOS:*
+```
+cd ios
+pod install
+cd ..
+```
+
 ### *Link*:
 
 *React Navigation*
+
 https://reactnavigation.org/docs/stack-navigator
+
 https://reactnavigation.org/docs/bottom-tab-navigator
 
 
