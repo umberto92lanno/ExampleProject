@@ -52,10 +52,10 @@ const Componente = () => {
 ## *useMemo*
 ##### Ritorna il valore il risultato della funzione eseguita. Viene utilizzato soprattutto per calcoli che richiedono un maggior numero di risorse.
 ```
-const valoreElaborato = useMemo(() => {
+const elaboratedValue = useMemo(() => {
    return array.map(a => a.id = a.id +1);
 }, []);
-// valoreElaborato conterrà il risultato del map.
+// elaboratedValue conterrà il risultato del map.
 ```
 
 ## *useState*
@@ -63,13 +63,28 @@ const valoreElaborato = useMemo(() => {
 1. Il primo elemento contiene il valore iniziale o l'eventuale valore a seguito degli update;
 1. Il secondo elemento contiene una funzione che permette di aggiornare il valore;
 ```
-const [valore, setValore] = useState(0);
+const [value, setValue] = useState(0);
 
 // visualizzare valore:
-console.log(valore); // 0
+console.log(value); // 0
 
 // aggiornamento valore:
-setValore(2); //richiamando console.log(valore) verrà stampato "2"
+setValue(2); //richiamando console.log(valore) verrà stampato "2"
 ```
+## *useRef*
+##### Ritorna un oggetto nel quale è presente un attributo "current" che contiene quanto dichiarato come parametro dell'hook.
+```
+class Example {
+    doThis() {}
+}
 
+//--------------------------------------------
 
+const Component = () => {
+
+    const classRef = useRef(new Class());
+    
+    // Utilizzo della const:
+    classRef.current.doThis(); 
+};
+```
