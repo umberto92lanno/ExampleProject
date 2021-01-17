@@ -14,11 +14,16 @@ npm install react-native-reanimated react-native-gesture-handler react-native-sc
 yarn add react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/native
 ```
 
+##### iOS
+###### da Terminale nella root del progetto:
+```
+cd ios && pod install
+```
+
 ## *Primi passi*<br/>
 ##### La prima cosa da fare sarà creare gli stack scelti per la navigazione.<br />Gli stack più importanti sono:
-1. StackNavigator
-1. BottomTabNavigator
-1. DrawerNavigator
+1. StackNavigator: https://reactnavigation.org/docs/stack-navigator
+1. BottomTabNavigator: https://reactnavigation.org/docs/bottom-tab-navigator
 
 ##### Creazione di un singolo stack in single page su App.js (punto d'ingresso dell'app React Native):
 ```
@@ -197,10 +202,9 @@ const goToNextPage = () => {
 ###### Pagina di destinazione:
 ```
 /*
-I parametri possono essere recuperati dall'oggetto "route"
-creato da react navigation, al suo interno è presente
-l'attributo "params" che contiene tutti gli oggetti da voi
-dichiarati nella navigate in pagina di partenza
+I parametri possono essere recuperati dall'oggetto "route" creato da react navigation.
+al suo interno è presente l'attributo "params" che contiene tutti gli oggetti da voi
+dichiarati nella funzione navigate in pagina di partenza
 */
 
 const Screen2 = ({ navigation, route }) => {
