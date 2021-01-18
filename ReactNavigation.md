@@ -4,6 +4,8 @@
 
 ## *Link utili e librerie da installare*<br/>
 Link doc: https://reactnavigation.org/docs/getting-started/
+> Sito ufficiale React Navigation<br/>
+> Autore: ReactNavigation Community
 ## *Comandi installazione librerie*<br/>
 ##### NPM
 ```
