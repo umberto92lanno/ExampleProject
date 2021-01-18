@@ -165,3 +165,87 @@ const CustomComponent = () => {
 export default CustomComponent;
 ```
 > Utilizzo degli [Hooks](Hooks.md)
+
+## *PureComponent*
+Ha lo stesso comportamento di un Component con una peculiarità in piu.<br/>
+Se utilizzato come children all'interno di un componente, al rerender del componente padre, il PureComponent verrà rerenderizzato solo ed esclusivamente se almeno una delle sue props è diversa dal render precedente.
+```
+import React, {Component, PureComponent} from 'react';
+import {TouchableOpacity, Text, View} from 'react-native';
+
+class CustomPureComponent extends PureComponent {
+    render() {
+        const { onPress } = this.props;
+        return (
+            <TouchableOpacity onPress={onPress}>
+                <View style={{backgroundColor: 'yellow', padding: 10}}>
+                    <Text>Change color</Text>
+                </View>
+            </TouchableOpacity>
+        );
+    }
+}
+
+export default class CustomClass extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      color: 'white',
+    };
+  }
+  componentDidMount() {
+    console.log('component mounted');
+  }
+  onPress = () => {
+    this.setState((prevState) => {return { color: prevState.color === 'white' ? 'red' : 'white' }})
+  }
+  render() {
+    const {color} = this.state;
+    return (
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: color}}>
+        <Text style={{marginBottom: 10}}>This is CustomClass</Text>
+        <CustomPureComponent
+            onPress={this.onPress} // CustomComponent verrà aggiornato solo se this.onPress cambia allocazione di memoria
+        />
+      </View>
+    );
+  }
+}
+```
+
+## *PureComponent FC (Function Component)*
+Anche le FC possono essere PureComponent, basterà racchiudere la funzione nel metodo "memo"
+```
+import React, {useEffect, useState, memo} from 'react';
+import {TouchableOpacity, Text, View} from 'react-native';
+
+const CustomPureComponent = memo(({ onPress }) => {
+    return (
+        <TouchableOpacity onPress={onPress}>
+            <View style={{backgroundColor: 'yellow', padding: 10}}>
+              <Text>Change color</Text>
+            </View>
+        </TouchableOpacity>
+    );
+});
+
+const CustomComponent = () => {
+  const [color, setColor] = useState('white');
+
+  useEffect(() => {
+    console.log('component mounted');
+  }, []);
+
+  const onPress = () => {
+    setColor(color === 'white' ? 'red' : 'white');
+  }
+
+  return (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: color}}>
+      <Text style={{marginBottom: 10}}>This is CustomClass</Text>
+      <CustomPureComponent onPress={onPress} />
+    </View>
+  );
+}
+export default CustomComponent;
+```
