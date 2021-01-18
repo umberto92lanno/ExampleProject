@@ -47,14 +47,45 @@ AppRegistry.registerComponent(appName, () => App);
 
 ## *Lifecycle* (ordinati)
 ### Mounting<br/>
-#### constructor<br/>
+```
+constructor(props)
+```
 Primo metodo chiamato una volta istanziata la classe, ancora prima di eseguire il DOM.
 Nel constructor vengono definite le variabili utili all'avvio del componente, viene usato soprattutto per l'inizializzazione dei vari state.
-#### render
+```
+render()
+```
 Contiene il JSX che genera il DOM.
-#### componentDidMount<br/>
+```
+componentDidMount()
+```
 Viene eseguito dopo il primo render(). In questo metodo è sconsigliato eseguire azioni di aggiornamento dello stato.
 ### Unmounting<br/>
-#### componentWillUnmount<br/>
+```
+componentWillUnmount()
+```
 Viene eseguito quando il componente viene dismesso.
+### Updating<br/>
+```
+shouldComponentUpdate(nextProps, nextState)
+```
+Chiamato prima ogni aggiornamento del DOM, serve a verificare se occorre effettivamente che il DOM venga aggiornato.
+Il metodo si aspetta un boolean al return.
+Di seguito un esempio:
+```
+shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.visible === nextState.visible) {
+        return false; // il DOM non viene aggiornato
+    }
+    return true; // il DOM viene aggiornato
+}
+```
+```
+componentDidUpdate(prevProps, prevState, snapshot)
+```
+Viene eseguito dopo che il DOM è stato aggiornato. Può essere utile per eseguire azioni in determinate condizioni.
+
+![alt text](https://www.netguru.com/hs-fs/hubfs/phases.jpg?width=1306&name=phases.jpg)
+> Immagine presa da: https://www.netguru.com/codestories/react-native-lifecycle
+
 
