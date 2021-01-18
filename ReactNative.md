@@ -205,7 +205,7 @@ export default class CustomClass extends Component {
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: color}}>
         <Text style={{marginBottom: 10}}>This is CustomClass</Text>
         <CustomPureComponent
-            onPress={this.onPress} // CustomComponent verrà aggiornato solo se this.onPress cambia allocazione di memoria
+            onPress={this.onPress} // CustomPureComponent verrà aggiornato solo se this.onPress cambia allocazione di memoria
         />
       </View>
     );
@@ -243,7 +243,7 @@ const CustomComponent = () => {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: color}}>
       <Text style={{marginBottom: 10}}>This is CustomClass</Text>
-      <CustomPureComponent onPress={onPress} />
+      <CustomPureComponent onPress={onPress} /> // CustomPureComponent verrà aggiornato solo se onPress cambia allocazione di memoria
     </View>
   );
 }
