@@ -46,12 +46,15 @@ AppRegistry.registerComponent(appName, () => App);
 ```
 
 ## *Lifecycle* (ordinati)
-###### constructor<br/>
+### Mounting<br/>
+#### constructor<br/>
 Primo metodo chiamato una volta istanziata la classe, ancora prima di eseguire il DOM.
 Nel constructor vengono definite le variabili utili all'avvio del componente, viene usato soprattutto per l'inizializzazione dei vari state.
-###### render
+#### render
 Contiene il JSX che genera il DOM.
-###### componentDidMount<br/>
-Viene eseguito dopo il primo render().
-###### componentWillUnmount<br/>
+#### componentDidMount<br/>
+Viene eseguito dopo il primo render(). In questo metodo è sconsigliato eseguire azioni di aggiornamento dello stato.
+### Unmounting<br/>
+#### componentWillUnmount<br/>
 Viene eseguito quando il componente viene dismesso.
+
