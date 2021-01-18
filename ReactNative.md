@@ -96,4 +96,72 @@ Viene eseguito dopo che il DOM è stato aggiornato. Può essere utile per esegui
 ![alt text](https://www.netguru.com/hs-fs/hubfs/phases.jpg?width=1306&name=phases.jpg)
 > Immagine presa da: https://www.netguru.com/codestories/react-native-lifecycle<br/>Articolo di: Maks Kolodiy
 
+## *Component*
+Il Component è una classe necessaria alla creazione di una schermata React.<br/>
+La classe custom creata dovrà essere estesa a Component, questo permetterà alla "CustomClass" di ereditare i metodi di Component, quindi i lifecycle indicati sopra.<br/>
+Di seguito un esempio di classe Component:
+```
+import React, {Component} from 'react';
+import {TouchableOpacity, Text, View} from 'react-native';
 
+export default class CustomClass extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      color: 'white',
+    };
+  }
+  componentDidMount() {
+    console.log('component mounted');
+  }
+  onPress = () => {
+    this.setState((prevState) => {return { color: prevState.color === 'white' ? 'red' : 'white' }})
+  }
+  render() {
+    const {color} = this.state;
+    return (
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: color}}>
+        <Text style={{marginBottom: 10}}>This is CustomClass</Text>
+        <TouchableOpacity onPress={this.onPress}>
+          <View style={{backgroundColor: 'yellow', padding: 10}}>
+            <Text>Change color</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
+```
+La classe mostrerà un testo e un bottone, al tap sul bottone verrà eseguito il metodo "onPress" che si occuperà di eseguire un aggiornamento dello state cambiando il colore dello sfondo.
+## *Component FC (Function Component)*
+La stessa visualizzazione può essere scritta senza l'utilizzo delle classi, mediante Function Component.<br/>
+Attualmente è il metodo più utilizzato per la programmazione in React Native.
+```
+import React, {useEffect, useState} from 'react';
+import {TouchableOpacity, Text, View} from 'react-native';
+
+const CustomComponent = () => {
+  const [color, setColor] = useState('white');
+
+  useEffect(() => {
+    console.log('component mounted');
+  }, []);
+
+  const onPress = () => {
+    setColor(color === 'white' ? 'red' : 'white');
+  }
+
+  return (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: color}}>
+      <Text style={{marginBottom: 10}}>This is CustomClass</Text>
+      <TouchableOpacity onPress={onPress}>
+        <View style={{backgroundColor: 'yellow', padding: 10}}>
+          <Text>Change color</Text>
+        </View>
+      </TouchableOpacity>
+    </View>
+  );
+}
+export default CustomComponent;
+```
+> Utilizzo degli [Hooks](Hooks.md)
