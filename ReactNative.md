@@ -59,13 +59,17 @@ Contiene il JSX che genera il DOM.
 ```
 componentDidMount()
 ```
-Viene eseguito dopo il primo render(). In questo metodo è sconsigliato eseguire azioni di aggiornamento dello stato.
+Viene invocato dopo il primo render(). In questo metodo è sconsigliato eseguire azioni di aggiornamento dello stato.
 ### Unmounting<br/>
 ```
 componentWillUnmount()
 ```
-Viene eseguito quando il componente viene dismesso.
+Viene invocato quando il componente viene dismesso.
 ### Updating<br/>
+```
+static getDerivedStateFromProps(props, state)
+```
+Viene invocato prima di ogni render e può essere utilizzato per ritornare un nuovo state o, nel caso in cui non servisse l'aggiornamento dello state, null.
 ```
 shouldComponentUpdate(nextProps, nextState)
 ```
@@ -81,11 +85,15 @@ shouldComponentUpdate(nextProps, nextState) {
 }
 ```
 ```
+getSnapshotBeforeUpdate(prevProps, prevState)
+```
+Viene invocato poco prima dell'ultimo render(), quello che viene indicato nel return del metodo verrà letto successivamente dal componentDidUpdate.
+```
 componentDidUpdate(prevProps, prevState, snapshot)
 ```
 Viene eseguito dopo che il DOM è stato aggiornato. Può essere utile per eseguire azioni in determinate condizioni.
 
 ![alt text](https://www.netguru.com/hs-fs/hubfs/phases.jpg?width=1306&name=phases.jpg)
-> Immagine presa da: https://www.netguru.com/codestories/react-native-lifecycle
+> Immagine presa da: https://www.netguru.com/codestories/react-native-lifecycle<br/>Articolo di: Maks Kolodiy
 
 
