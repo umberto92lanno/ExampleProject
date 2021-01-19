@@ -9,7 +9,6 @@ const Stack = createStackNavigator();
 
 export const MainStack = () => (
     <Stack.Navigator mode="modal">
-        <Stack.Screen name="Main" component={MainTabs} options={{ headerShown: false }}/>
-        <Stack.Screen name="Cerca" component={() => <View />} />
+        <Stack.Screen name="Main" component={MainTabs} />
     </Stack.Navigator>
 );

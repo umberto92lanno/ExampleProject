@@ -1,23 +1,27 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 import {MainStack} from './config/navigation/stacks/main.stacks';
+import Home from './screens/Home';
+import UserDetails from './screens/UserDetails';
+
+
+const StackNav = () => {
+  const Stack = createStackNavigator();
+  return (
+    <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="UserDetails" component={UserDetails} options={{ headerStyle: { backgroundColor: 'blue' } }} />
+    </Stack.Navigator>
+  );
+}
+
+
 
 const AppReal = () => {
-  const [array, setArray] = useState([]);
-
-  const funzione = useCallback(() => {
-    if (array.length) {
-      console.log('Non ci sono elementi');
-    } else {
-      console.log(array);
-    }
-  }, [array]);
-
-  funzione();
-
   return (
     <NavigationContainer>
-      <MainStack />
+      <StackNav />
     </NavigationContainer>
   );
 };
