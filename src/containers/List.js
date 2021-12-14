@@ -1,9 +1,11 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import { FlatList, View, Text, Image, StyleSheet } from "react-native";
+import {TextInput} from "react-native-web";
 
 const List = () => {
   const [characters, setCharacters] = useState([]);
   const [extraData, setExtraData] = useState(false);
+  const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
     const getCharacters = async () => {
@@ -26,12 +28,21 @@ const List = () => {
 
   const renderItem = useCallback(({ item }) => {
     return (
-      <View style={styles.container}>
-        <Image source={{ uri: item.image }} style={styles.image} />
-        <Text>{item.name}</Text>
-      </View>
+        <View style={styles.container}>
+          <Image source={{ uri: item.image }} style={styles.image} />
+          <Text>{item.name}</Text>
+        </View>
     );
   }, []);
+
+  const filteredCharacters = useMemo(() => {
+    if (!searchText) {
+      return characters;
+    }
+    return characters.filter(character => character.name.toLowerCase().includes(searchText.toLowerCase()));
+  }, [characters, searchText])
+
+
 
   const keyExtractor = useCallback((item, index) => {
     return `${item.id}`;
@@ -42,15 +53,18 @@ const List = () => {
   }, []);
 
   return (
-    <FlatList
-      data={characters}
-      renderItem={renderItem}
-      keyExtractor={keyExtractor}
-      extraData={extraData}
-      
-      contentContainerStyle={styles.flatListContainer}
-      ItemSeparatorComponent={ItemSeparatorComponent}
-    />
+      <>
+        <TextInput onChangeText={setSearchText} />
+        <FlatList
+            data={filteredCharacters}
+            renderItem={renderItem}
+            keyExtractor={keyExtractor}
+            extraData={extraData}
+
+            contentContainerStyle={styles.flatListContainer}
+            ItemSeparatorComponent={ItemSeparatorComponent}
+        />
+      </>
   );
 };
 
