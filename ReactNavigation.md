@@ -32,7 +32,7 @@ cd ios && pod install
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Screen1 = ({ navigation }) => {
   const onPressScreen1 = () => {
@@ -64,7 +64,7 @@ const Screen2 = ({ navigation }) => {
 
 const App = () => {
 
-  const Stack = createStackNavigator();
+  const Stack = createNativeStackNavigator();
 
   const StackComponent = () => {
     return (
@@ -89,8 +89,8 @@ export default App;
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Screen1 = ({ navigation }) => {
   const onPressScreen1 = () => {
@@ -150,7 +150,7 @@ const Screen4 = ({ navigation }) => {
 
 const App = () => {
 
-  const Stack = createStackNavigator();
+  const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
 
   const FirstTabStackComponent = () => {
